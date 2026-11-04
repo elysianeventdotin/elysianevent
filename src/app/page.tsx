@@ -1,8 +1,7 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { ArrowRight, Phone, Leaf, Sun, Handshake } from '@phosphor-icons/react/dist/ssr';
-import { Reveal, SplitText, ParallaxImage, Marquee, HeroBackdrop } from '@/components/Motion';
-import { Sprig, Bloom, Jasmine, Ornament, Corner, Swoosh, Petals } from '@/components/Floral';
+import { Reveal, SplitText, ParallaxImage, Marquee, HeroBackdrop, ArchImage, RotatingBadge } from '@/components/Motion';
+import { Sprig, Bloom, Jasmine, Ornament, Corner, Swoosh, Petals, Butterfly } from '@/components/Floral';
 import Gallery from '@/components/Gallery';
 import CTA from '@/components/CTA';
 import { services, catering } from '@/lib/services';
@@ -10,39 +9,41 @@ import { brand, serviceNames } from '@/lib/brand';
 
 export default function Home() {
   return (<>
-    {/* HERO: light & airy — full-bleed mandap, editorial lower-left type, implied hairline frame */}
-    <section className="grain relative min-h-[100svh] overflow-hidden bg-ivory text-forest-ink">
+    {/* HERO: cinematic dusk — full-bleed mandap, golden light bloom, arch portrait & editorial type */}
+    <section className="grain relative min-h-[100svh] overflow-hidden bg-forest-deep text-ivory">
       <HeroBackdrop src="/img/hero-mandap.webp" position="object-center" />
-      <div className="absolute inset-0 bg-gradient-to-r from-ivory/95 via-ivory/55 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-b from-forest/70 via-forest/25 to-transparent" />
-      <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(255,249,229,.95),transparent_36%)]" />
-      <Petals count={8} />
-      <Corner className="absolute left-6 top-28 hidden h-20 w-20 text-gold-dark/60 md:block" />
-      <Corner className="absolute right-6 top-28 hidden h-20 w-20 rotate-90 text-gold-dark/60 md:block" />
-      <Corner className="absolute bottom-28 left-6 hidden h-20 w-20 -rotate-90 text-gold-dark/60 md:block" />
-      <Corner className="absolute bottom-28 right-6 hidden h-20 w-20 rotate-180 text-gold-dark/60 md:block" />
-      <p className="absolute right-8 top-1/2 hidden -translate-y-1/2 rotate-90 text-[.68rem] font-medium uppercase tracking-[.4em] text-forest-ink/55 lg:block" aria-hidden="true">Kerala · Est 2025</p>
-      <div className="relative mx-auto flex min-h-[100svh] w-full max-w-7xl items-end px-6 pb-40 pt-36 md:pb-44">
+      <div className="absolute inset-0 bg-gradient-to-r from-forest-ink/95 via-forest-ink/50 to-forest-ink/15" />
+      <div className="absolute inset-0 bg-gradient-to-b from-forest-ink/80 via-transparent to-forest-ink/55" />
+      <div className="absolute inset-0 bg-[radial-gradient(110%_80%_at_75%_12%,rgba(230,203,138,.3),transparent_55%)] mix-blend-screen" aria-hidden="true" />
+      <div className="absolute inset-0 bg-[linear-gradient(112deg,transparent_38%,rgba(243,223,168,.12)_50%,transparent_64%)] mix-blend-screen" aria-hidden="true" />
+      <Petals count={10} />
+      <Butterfly className="left-[58%] top-[24%] hidden h-14 w-16 lg:block" />
+      <p className="absolute right-7 top-[30%] hidden -translate-y-1/2 rotate-90 text-[.66rem] font-medium uppercase tracking-[.42em] text-ivory/50 lg:block" aria-hidden="true">Kerala · Est 2025</p>
+      <div className="relative mx-auto flex min-h-[100svh] w-full max-w-7xl items-end px-6 pb-44 pt-40 md:pb-48">
         <div className="max-w-2xl">
-          <Reveal><p className="eyebrow flex items-center gap-4 text-gold-dark"><span className="h-px w-10 bg-gold-dark/70" aria-hidden="true" />Elysian Event Management<span className="hidden sm:inline">&nbsp;·&nbsp; Est 2025</span></p></Reveal>
-          <h1 className="mt-8 font-display text-[3.6rem] font-medium leading-[0.92] text-forest-ink sm:text-7xl xl:text-[6.4rem]">
-            <SplitText text="Event Catering" delay={0.2} />
-            <span className="font-script text-gold-grad -mt-[0.22em] block pt-3 text-[3.8rem] font-normal sm:text-7xl xl:text-[6rem]">Made Simple</span>
+          <Reveal><p className="eyebrow flex items-center gap-4 text-gold-light"><span className="h-px w-10 bg-gold-light/70" aria-hidden="true" />Elysian Event Management</p></Reveal>
+          <h1 className="mt-8 font-display text-[3.7rem] font-medium leading-[0.95] [text-shadow:0_3px_44px_rgba(6,16,12,.5)] sm:text-7xl xl:text-[6.6rem]">
+            <SplitText text="Event Catering" delay={0.25} />
+            <span className="font-script text-gold-grad -mt-[0.18em] block pt-2 text-[4rem] font-normal sm:text-8xl xl:text-[6.9rem]">made simple</span>
           </h1>
-          <svg viewBox="0 0 420 24" className="mt-2 h-5 w-72 text-gold-dark" aria-hidden="true"><path d="M2 18 C120 2 300 2 418 14" fill="none" stroke="currentColor" strokeWidth="1.4" strokeDasharray="460" strokeDashoffset="460"><animate attributeName="stroke-dashoffset" to="0" dur="2s" begin=".9s" fill="freeze" /></path></svg>
-          <Reveal delay={0.6}><p className="mt-6 max-w-md text-lg leading-relaxed text-forest-ink/70">Delicious food and seamless catering for your most special moments, set among flowers, warm light and the people you love.</p></Reveal>
-          <Reveal delay={0.8} className="mt-10 flex flex-wrap items-center gap-6">
-            <Link href="/contact" className="bg-gold group inline-flex items-center gap-3 px-8 py-4 font-medium text-forest-ink transition hover:bg-gold-light">Reserve Your Date Today <ArrowRight weight="light" size={18} className="transition group-hover:translate-x-1" /></Link>
-            <a href={`tel:${brand.contacts[0].tel}`} className="inline-flex items-center gap-2 border-b border-forest/40 pb-1 text-forest-ink/80 hover:text-gold-dark"><Phone weight="thin" size={20} /> {brand.contacts[0].phone}</a>
+          <svg viewBox="0 0 420 24" className="mt-3 h-5 w-72 text-gold-light" aria-hidden="true"><path d="M2 18 C120 2 300 2 418 14" fill="none" stroke="currentColor" strokeWidth="1.4" strokeDasharray="460" strokeDashoffset="460"><animate attributeName="stroke-dashoffset" to="0" dur="2s" begin=".9s" fill="freeze" /></path></svg>
+          <Reveal delay={0.7}><p className="mt-7 max-w-md text-lg leading-relaxed text-ivory/75">Delicious food and seamless catering for your most special moments — real flowers, warm light and the people you love.</p></Reveal>
+          <Reveal delay={0.9} className="mt-10 flex flex-wrap items-center gap-6">
+            <Link href="/contact" className="bg-gold-grad group inline-flex items-center gap-3 px-8 py-4 font-medium text-forest-ink shadow-[0_24px_60px_-20px_rgba(201,162,75,.6)] transition hover:brightness-110">Reserve Your Date <ArrowRight weight="light" size={18} className="transition group-hover:translate-x-1" /></Link>
+            <a href={`tel:${brand.contacts[0].tel}`} className="inline-flex items-center gap-2 border-b border-ivory/30 pb-1 text-ivory/85 transition hover:border-gold-light hover:text-gold-light"><Phone weight="thin" size={20} /> {brand.contacts[0].phone}</a>
           </Reveal>
-          <Reveal delay={1}><p className="mt-12 text-[.68rem] font-medium uppercase tracking-[.32em] text-forest-ink/55">Weddings &nbsp;·&nbsp; Engagements &nbsp;·&nbsp; Birthdays &nbsp;·&nbsp; Corporate</p></Reveal>
+          <Reveal delay={1.1}><p className="mt-12 text-[.66rem] font-medium uppercase tracking-[.34em] text-ivory/55">Weddings &nbsp;·&nbsp; Engagements &nbsp;·&nbsp; Birthdays &nbsp;·&nbsp; Corporate</p></Reveal>
         </div>
       </div>
-      <div className="absolute bottom-32 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-forest-ink/55 md:flex" aria-hidden="true">
-        <span className="eyebrow text-[.6rem]">Scroll</span>
-        <svg viewBox="0 0 10 56" className="h-12 w-2.5"><line x1="5" y1="0" x2="5" y2="56" stroke="currentColor" strokeWidth="1" opacity=".5" /><circle cx="5" cy="6" r="2.2" fill="#9C7A2E"><animate attributeName="cy" values="4;50" dur="2.2s" repeatCount="indefinite" /></circle></svg>
+      <div className="absolute bottom-28 right-[6.5%] hidden lg:block">
+        <ArchImage src="/img/g-table.webp" alt="Table dressed with white blooms, taper candles and crystal glassware" className="h-[52vh] w-[19vw] min-w-[240px] max-w-[320px]" />
+        <RotatingBadge className="absolute -left-12 top-8 h-24 w-24 rounded-full bg-forest-ink/45 text-gold-light/90 backdrop-blur-sm" />
       </div>
-      <Swoosh className="absolute inset-x-0 bottom-0 h-20 w-full md:h-32" />
+      <div className="absolute bottom-40 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-ivory/60 md:flex" aria-hidden="true">
+        <span className="eyebrow text-[.58rem]">Scroll</span>
+        <svg viewBox="0 0 10 56" className="h-12 w-2.5"><line x1="5" y1="0" x2="5" y2="56" stroke="currentColor" strokeWidth="1" opacity=".5" /><circle cx="5" cy="6" r="2.2" fill="#E6CB8A"><animate attributeName="cy" values="4;50" dur="2.2s" repeatCount="indefinite" /></circle></svg>
+      </div>
+      <Swoosh className="absolute inset-x-0 bottom-0 h-20 w-full md:h-28" />
     </section>
 
     {/* Intro */}
