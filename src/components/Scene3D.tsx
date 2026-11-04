@@ -50,7 +50,7 @@ export default function Scene3D() {
       <Float speed={1.4} rotationIntensity={0.25} floatIntensity={0.6}><Cloche /></Float>
       <Rings />
       <Leaves />
-      <ContactShadows position={[0, -1.6, 0]} opacity={0.35} scale={8} blur={2.6} far={3} color="#03140f" />
+      <ContactShadows position={[0, -1.6, 0]} opacity={0.35} scale={8} blur={2.6} far={3} color="#0A1A13" />
       <Environment resolution={256}>
         <Lightformer form="ring" intensity={4} position={[2, 2, 4]} scale={2} color="#FFE7C2" />
         <Lightformer intensity={3} position={[0, 5, -2]} scale={[10, 2, 1]} color="#FFF4DE" />

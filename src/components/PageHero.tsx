@@ -12,7 +12,7 @@ export default function PageHero({ eyebrow, title, script, text, img }: { eyebro
       <div className="relative mx-auto w-full max-w-7xl px-6">
         <Reveal><p className="eyebrow text-gold-light">{eyebrow}</p></Reveal>
         <h1 className="mt-6 max-w-4xl font-display text-6xl leading-[0.95] md:text-8xl">
-          <SplitText text={title} /> <span className="font-script text-gold-grad block pt-2 text-6xl md:text-8xl">{script}</span>
+          <SplitText text={title} /> <span className="font-script text-gold-grad -mt-[0.22em] block pt-2 text-6xl md:text-8xl">{script}</span>
         </h1>
         <Reveal delay={0.4}><p className="mt-8 max-w-xl text-lg leading-relaxed text-ivory/75">{text}</p></Reveal>
       </div>

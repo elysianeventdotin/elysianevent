@@ -18,6 +18,13 @@ export function SplitText({ text, className = '', delay = 0, as = 'span' }: { te
     </Tag>
   );
 }
+export function HeroBackdrop({ src, alt = '', position = 'object-center', quality = 90 }: { src: string; alt?: string; position?: string; quality?: number }) {
+  return (
+    <motion.div className="absolute inset-0" initial={{ scale: 1.12, opacity: 0.4 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 2.4, ease }}>
+      <Image src={src} alt={alt} fill priority sizes="100vw" quality={quality} className={`object-cover ${position}`} />
+    </motion.div>
+  );
+}
 export function ParallaxImage({ src, alt, className = '', strength = 80, priority = false }: { src: string; alt: string; className?: string; strength?: number; priority?: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });

@@ -16,7 +16,7 @@ export default function Nav() {
   return (
     <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? 'bg-ivory/85 py-3 shadow-[0_10px_40px_-20px_rgba(11,46,39,.35)] backdrop-blur-xl' : 'py-6'}`}>
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6" aria-label="Main">
-        <Link href="/" aria-label="Elysian home"><Logo variant={dark ? 'gold' : 'green'} light={dark} /></Link>
+        <Link href="/" aria-label="Elysian home"><Logo variant={dark ? 'white' : 'green'} /></Link>
         <ul className="hidden items-center gap-10 md:flex">
           {links.map(([h, l]) => (
             <li key={h}><Link href={h} className={`group relative text-sm tracking-wide ${dark ? 'text-ivory/90' : 'text-forest'}`}>
@@ -32,7 +32,7 @@ export default function Nav() {
       <AnimatePresence>
         {open && (
           <motion.div className="fixed inset-0 z-50 flex flex-col bg-forest-deep px-8 py-6 text-ivory" initial={{ clipPath: 'circle(0% at 100% 0%)' }} animate={{ clipPath: 'circle(150% at 100% 0%)' }} exit={{ clipPath: 'circle(0% at 100% 0%)' }} transition={{ duration: 0.7, ease: [0.65, 0, 0.35, 1] }}>
-            <div className="flex items-center justify-between"><Logo variant="gold" light /><button onClick={() => setOpen(false)} aria-label="Close menu"><X size={30} weight="thin" /></button></div>
+            <div className="flex items-center justify-between"><Logo variant="white" /><button onClick={() => setOpen(false)} aria-label="Close menu"><X size={30} weight="thin" /></button></div>
             <ul className="mt-16 space-y-6">{links.map(([h, l], i) => (
               <motion.li key={h} initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 + i * 0.08 }}><Link href={h} className="font-display text-5xl">{l}</Link></motion.li>
             ))}</ul>

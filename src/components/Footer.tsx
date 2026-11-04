@@ -10,7 +10,7 @@ export default function Footer() {
       <Sprig className="absolute -right-6 bottom-0 h-72 text-gold/25" flip />
       <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-20 md:grid-cols-4">
         <div className="md:col-span-2">
-          <Logo variant="gold" light />
+          <Logo variant="white" className="h-20" />
           <p className="mt-6 max-w-sm leading-relaxed">Food, flowers and gentle hospitality for the days you will remember. We make your dream day beautiful, with the best service at a fair cost.</p>
           <p className="mt-6 font-script text-3xl text-gold-light">You enjoy the Moments.</p>
         </div>

@@ -19,6 +19,7 @@ Photos from Unsplash (free under the Unsplash License, https://unsplash.com/lice
 | cat-corporate.webp | https://images.unsplash.com/photo-1732850714203-d40cd333968e | Guests at a buffet line |
 | cat-wedding.webp | https://images.unsplash.com/photo-1788619378696-c77352c43a88 | Traditional meal served on banana leaves |
 | g-ritual.webp | https://images.unsplash.com/photo-1587271407850-8d438ca9fdf2 | Couple performing a wedding ritual under a floral canopy |
+| hero-mandap.webp | https://images.unsplash.com/photo-1772127822552-ce9ef537bdcf | Golden wedding mandap with hanging garlands and floral aisle |
 | g-arch.webp | https://images.unsplash.com/photo-1785336872679-68dc5a374172 | Archway adorned with white flowers under spotlights |
 | g-table.webp | https://images.unsplash.com/photo-1660511057210-f7fba78d2741 | Table with white flowers and candles |
 | g-thali.webp | https://images.unsplash.com/photo-1789993494863-437bee68f8e6 | Thali with appam, papadum and curries |

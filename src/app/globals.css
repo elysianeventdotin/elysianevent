@@ -1,15 +1,15 @@
 @import "tailwindcss";
 @theme {
-  --color-forest: #0F3D33; --color-forest-deep: #0B2E27; --color-forest-ink: #07201B;
+  --color-forest: #163525; --color-forest-deep: #10271C; --color-forest-ink: #0A1A13;
   --color-gold: #C9A24B; --color-gold-light: #E6CB8A; --color-gold-dark: #9C7A2E;
-  --color-ivory: #FAF6EE; --color-cream: #F2EADB; --color-copper: #B66A3C; --color-sage: #8FA89A;
+  --color-ivory: #FFF9E5; --color-cream: #F4EDD6; --color-copper: #B66A3C; --color-sage: #8FA89A;
   --font-display: var(--f-display), Georgia, serif; --font-script: var(--f-script), cursive; --font-sans: var(--f-sans), system-ui, sans-serif;
 }
 html { background: var(--color-ivory); color: var(--color-forest-ink); }
 body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
-.text-gold-grad { background: linear-gradient(100deg,#9C7A2E 0%,#E6CB8A 35%,#C9A24B 60%,#F3DFA8 80%,#9C7A2E 100%); -webkit-background-clip: text; background-clip: text; color: transparent; padding: 0 .18em .12em 0; margin-right: -.1em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.text-gold-grad { background: linear-gradient(100deg,#9C7A2E 0%,#E6CB8A 35%,#C9A24B 60%,#F3DFA8 80%,#9C7A2E 100%); -webkit-background-clip: text; background-clip: text; color: transparent; padding: .22em .18em .14em 0; margin-right: -.1em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 .bg-gold-grad { background: linear-gradient(100deg,#9C7A2E,#E6CB8A 40%,#C9A24B 70%,#B8913F); }
 .grain::after { content:""; position:absolute; inset:0; pointer-events:none; opacity:.06; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
 .eyebrow { font-size:.72rem; letter-spacing:.32em; text-transform:uppercase; font-weight:600; }

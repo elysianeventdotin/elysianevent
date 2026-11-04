@@ -1,6 +1,7 @@
 'use client';
 import { motion, useReducedMotion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
+import type { CSSProperties } from 'react';
 const draw: Variants = { hidden: { pathLength: 0, opacity: 0 }, show: (i: number) => ({ pathLength: 1, opacity: 1, transition: { pathLength: { duration: 2.2, delay: i * 0.12, ease: [0.65, 0, 0.35, 1] as const }, opacity: { duration: 0.3, delay: i * 0.12 } } }) };
 type P = { className?: string; color?: string };
 function Draw({ d, i, w = 1.2 }: { d: string; i: number; w?: number }) {
@@ -72,13 +73,43 @@ export function Corner({ className = '' }: P) {
   );
 }
 /** Gold swoosh like the posters */
-export function Swoosh({ className = '', fill = '#FAF6EE' }: P & { fill?: string }) {
+export function Swoosh({ className = '', fill = '#FFF9E5' }: P & { fill?: string }) {
   return (
     <svg viewBox="0 0 1440 120" preserveAspectRatio="none" className={className} aria-hidden="true">
       <defs><linearGradient id="sw" x1="0" x2="1"><stop offset="0" stopColor="#9C7A2E" /><stop offset=".45" stopColor="#F3DFA8" /><stop offset="1" stopColor="#C9A24B" /></linearGradient></defs>
       <path d="M0 120 V70 C360 120 900 10 1440 40 V120z" fill={fill} />
       <motion.path d="M0 66 C360 118 900 6 1440 36" fill="none" stroke="url(#sw)" strokeWidth="3" initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true }} transition={{ duration: 2.4, ease: [0.65, 0, 0.35, 1] }} />
     </svg>
+  );
+}
+/** Butterfly drifting across a section, gentle wing flap */
+export function Butterfly({ className = '' }: P) {
+  const rm = useReducedMotion();
+  if (rm) return null;
+  const wings = (<>
+    <path d="M50 42 C42 18 28 6 14 8 C2 10 2 28 12 38 C24 46 40 50 50 52 Z" fill="url(#bfGold)" stroke="#9C7A2E" strokeWidth="1" />
+    <path d="M50 52 C40 56 28 62 24 72 C21 81 30 88 38 84 C46 80 50 66 50 56 Z" fill="url(#bfGold)" stroke="#9C7A2E" strokeWidth="1" />
+    <path d="M47 44 C36 32 24 26 14 24 M48 48 C36 42 26 40 18 40" fill="none" stroke="#9C7A2E" strokeWidth=".7" opacity=".5" />
+  </>);
+  const flap = { animate: { scaleX: [1, 0.3, 1] }, transition: { duration: 0.7, repeat: Infinity, ease: 'easeInOut' as const }, style: { transformBox: 'fill-box', transformOrigin: '100% 50%' } as CSSProperties };
+  return (
+    <motion.div className={`pointer-events-none absolute ${className}`} aria-hidden="true"
+      animate={{ x: ['0vw', '-16vw', '-26vw', '-10vw', '4vw', '0vw'], y: ['0vh', '-12vh', '8vh', '16vh', '-8vh', '0vh'], rotate: [0, -10, 8, -5, 10, 0] }}
+      transition={{ duration: 28, repeat: Infinity, ease: 'easeInOut' }}>
+      <svg viewBox="0 0 100 92" className="h-full w-full">
+        <defs>
+          <linearGradient id="bfGold" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stopColor="#F3DFA8" /><stop offset=".55" stopColor="#C9A24B" /><stop offset="1" stopColor="#9C7A2E" />
+          </linearGradient>
+        </defs>
+        <motion.g {...flap}>{wings}</motion.g>
+        <g transform="translate(100 0) scale(-1 1)"><motion.g {...flap}>{wings}</motion.g></g>
+        <ellipse cx="50" cy="56" rx="3" ry="20" fill="#9C7A2E" />
+        <circle cx="50" cy="33" r="3.4" fill="#9C7A2E" />
+        <path d="M50 30 C46 20 40 14 33 12 M50 30 C54 20 60 14 67 12" fill="none" stroke="#9C7A2E" strokeWidth="1" />
+        <circle cx="33" cy="12" r="1.4" fill="#9C7A2E" /><circle cx="67" cy="12" r="1.4" fill="#9C7A2E" />
+      </svg>
+    </motion.div>
   );
 }
 /** Petals drifting (CSS-free, framer) */
