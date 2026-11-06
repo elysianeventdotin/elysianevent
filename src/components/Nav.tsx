@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { List, X, ArrowUpRight } from '@phosphor-icons/react';
 import { Logo } from './Logo';
-const links = [['/', 'Home'], ['/our-story', 'Our Story'], ['/services', 'Services'], ['/contact', 'Contact']];
+const links = [['/', 'Home'], ['/our-story', 'Our Story'], ['/services', 'Services'], ['/brochure', 'Brochure'], ['/contact', 'Contact']];
 export default function Nav() {
   const path = usePathname();
   const [scrolled, setScrolled] = useState(false);

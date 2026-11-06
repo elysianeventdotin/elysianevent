@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, Phone, Leaf, Sun, Handshake } from '@phosphor-icons/react/dist/ssr';
+import { ArrowRight, Phone, Leaf, Sun, Handshake, BookOpen } from '@phosphor-icons/react/dist/ssr';
 import { Reveal, SplitText, ParallaxImage, Marquee, HeroBackdrop, ArchImage, RotatingBadge } from '@/components/Motion';
 import { Sprig, Bloom, Jasmine, Ornament, Corner, Swoosh, Petals, Butterfly } from '@/components/Floral';
 import Gallery from '@/components/Gallery';
@@ -31,6 +31,7 @@ export default function Home() {
           <Reveal delay={0.9} className="mt-10 flex flex-wrap items-center gap-6">
             <Link href="/contact" className="bg-gold-grad group inline-flex items-center gap-3 px-8 py-4 font-medium text-forest-ink shadow-[0_24px_60px_-20px_rgba(201,162,75,.6)] transition hover:brightness-110">Reserve Your Date <ArrowRight weight="light" size={18} className="transition group-hover:translate-x-1" /></Link>
             <a href={`tel:${brand.contacts[0].tel}`} className="inline-flex items-center gap-2 border-b border-ivory/30 pb-1 text-ivory/85 transition hover:border-gold-light hover:text-gold-light"><Phone weight="thin" size={20} /> {brand.contacts[0].phone}</a>
+            <Link href="/brochure" className="inline-flex items-center gap-2 border-b border-ivory/30 pb-1 text-ivory/85 transition hover:border-gold-light hover:text-gold-light"><BookOpen weight="thin" size={20} /> Brochure & Menu</Link>
           </Reveal>
           <Reveal delay={1.1}><p className="mt-12 text-[.66rem] font-medium uppercase tracking-[.34em] text-ivory/55">Weddings &nbsp;·&nbsp; Engagements &nbsp;·&nbsp; Birthdays &nbsp;·&nbsp; Corporate</p></Reveal>
         </div>
