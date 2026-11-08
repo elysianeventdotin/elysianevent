@@ -17,7 +17,7 @@ export default function CTA() {
           <Link href="/contact" className="bg-gold group inline-flex items-center gap-3 px-9 py-4 font-medium text-forest-ink shadow-[0_20px_50px_-20px_rgba(201,162,75,.8)] transition hover:bg-gold-light">
             Reserve Your Date Today <ArrowRight weight="light" size={18} className="transition group-hover:translate-x-1" />
           </Link>
-          <Link href="/brochure" className="inline-flex items-center gap-2 border-b border-ivory/30 pb-1 text-ivory/85 transition hover:border-gold-light hover:text-gold-light">Browse the Brochure <ArrowRight weight="light" size={16} /></Link>
+          <Link href="/brochure" className="inline-flex items-center gap-2 border-b border-ivory/30 pb-1 text-ivory/85 transition hover:border-gold-light hover:text-gold-light">Browse the Food Menu <ArrowRight weight="light" size={16} /></Link>
         </div>
       </Reveal>
     </section>

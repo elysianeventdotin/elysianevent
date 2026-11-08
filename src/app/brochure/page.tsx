@@ -5,9 +5,9 @@ import PageHero from '@/components/PageHero';
 import { Reveal, SplitText, Marquee } from '@/components/Motion';
 import { Ornament, Corner, Sprig, Bloom, Jasmine } from '@/components/Floral';
 import CTA from '@/components/CTA';
-import { menu, menuTagline } from '@/lib/menu';
+import { menu, counters, menuTagline, countersTagline } from '@/lib/menu';
 import { brand } from '@/lib/brand';
-export const metadata: Metadata = { title: 'Brochure & Menu', description: 'The Elysian brochure — Malabar biriyanis, mandhi, breads, curries, salads and pickles catered for weddings, engagements, birthdays and corporate events across Kerala.' };
+export const metadata: Metadata = { title: 'Brochure & Menu', description: 'The Elysian brochure — Malabar biriyanis, mandhi, breads, curries, salads and pickles, plus live food counters, desserts, juices and Samaavar tea for weddings, engagements, birthdays and corporate events across Kerala.' };
 export default function Brochure() {
   return (<>
     <PageHero eyebrow="Our Brochure" title="A feast of" script="Malabar flavours" text="Every dish we serve at your celebration — biriyanis, breads, curries and pickles — gathered in one place." img="/img/g-thali.webp" />
@@ -58,6 +58,23 @@ export default function Brochure() {
         </div>
         <Reveal className="mx-auto mt-8 max-w-3xl border-t border-gold/25 pt-10 text-center">
           <p className="font-script text-2xl leading-relaxed text-gold-light md:text-3xl">{menuTagline}</p>
+        </Reveal>
+        <div className="mt-20 text-center">
+          <Reveal><p className="eyebrow text-gold-light">Made live, at your event</p></Reveal>
+          <h3 className="mt-4 font-script text-5xl text-gold-grad md:text-6xl">Counters &amp; Sweet Endings</h3>
+        </div>
+        <div className="mt-12 columns-1 gap-12 sm:columns-2 lg:columns-3 xl:columns-4">
+          {counters.map((cat, i) => (
+            <Reveal key={cat.name} delay={(i % 4) * 0.08} className="mb-12 break-inside-avoid">
+              <h3 className="font-script text-4xl text-gold-light">{cat.name}</h3>
+              <ul className="mt-5 space-y-2.5 border-l border-gold/25 pl-5">
+                {cat.items.map((item) => <li key={item} className="text-[.95rem] leading-relaxed text-ivory/80">{item}</li>)}
+              </ul>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal className="mx-auto mt-8 max-w-3xl border-t border-gold/25 pt-10 text-center">
+          <p className="font-script text-2xl leading-relaxed text-gold-light md:text-3xl">{countersTagline}</p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-8">
             <Link href="/contact" className="bg-gold group inline-flex items-center gap-3 px-8 py-4 font-medium text-forest-ink transition hover:bg-gold-light">Plan Your Menu <ArrowRight weight="light" size={18} className="transition group-hover:translate-x-1" /></Link>
             <a href="/elysian-brochure.pdf" download="Elysian-Brochure.pdf" className="inline-flex items-center gap-2 border-b border-ivory/30 pb-1 text-ivory/85 transition hover:border-gold-light hover:text-gold-light">Download as PDF <DownloadSimple weight="light" size={16} /></a>
@@ -66,7 +83,7 @@ export default function Brochure() {
       </div>
     </section>
 
-    <Marquee items={menu.map((c) => c.name)} />
+    <Marquee items={[...menu, ...counters].map((c) => c.name)} />
 
     {/* Visit Us — the back panel of the trifold */}
     <section className="relative overflow-hidden bg-cream px-6 py-28">
